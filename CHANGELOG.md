@@ -1,3 +1,9 @@
+## [1.16.5](https://git.afrotomation.com/afrotomation/fructosahel/compare/v1.16.4...v1.16.5) (2026-05-18)
+
+### Bug Fixes
+
+* **docker:** migrate base images from public.ecr.aws to mirror.gcr.io ([d468a0d](https://git.afrotomation.com/afrotomation/fructosahel/commit/d468a0d853f7ba67f7294f7bd334283c5e03d916))
+
 ## [1.16.4](https://github.com/afrotomation/fructosahel/compare/v1.16.3...v1.16.4) (2026-04-26)
 
 ### Bug Fixes
