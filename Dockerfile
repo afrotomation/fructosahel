@@ -4,17 +4,21 @@ ARG NODE_VERSION=22-alpine
 FROM mirror.gcr.io/library/node:${NODE_VERSION} AS builder
 RUN apk add --no-cache libc6-compat openssl
 WORKDIR /app
-COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
+
+# Install layer: invalidated only when lockfile changes
+COPY package.json ./
+COPY bun.lock* package-lock.json* ./
+RUN if [ -f bun.lock ]; then npm install -g bun@1.2.17 && bun install --frozen-lockfile; \
+    elif [ -f package-lock.json ]; then npm ci; \
+    else npm install; fi
+
+COPY . .
 
 ARG NEXT_PUBLIC_APP_URL
 ARG NEXT_PUBLIC_ANALYTICS_ENABLED
 ARG NEXT_PUBLIC_ANALYTICS_API_KEY
 ARG NEXT_PUBLIC_ANALYTICS_ENDPOINT
-
-RUN if [ -f bun.lock ]; then npm install -g bun@1.2.17 && bun install; \
-    elif [ -f package-lock.json ]; then npm ci; \
-    else npm install; fi
 
 RUN if [ -f bun.lock ]; then bun run build; else npm run build; fi
 RUN mkdir -p /app/public
