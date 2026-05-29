@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:1.7
+# syntax=docker/dockerfile:1.24
 ARG NODE_VERSION=22-alpine
 
 FROM mirror.gcr.io/library/node:${NODE_VERSION} AS builder
