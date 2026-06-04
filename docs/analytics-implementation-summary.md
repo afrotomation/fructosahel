@@ -82,9 +82,9 @@ Analytics telemetry has been successfully implemented for the FructoSahel Next.j
 
 **New Variables**:
 ```env
-NEXT_PUBLIC_ANALYTICS_ENABLED=true
-NEXT_PUBLIC_ANALYTICS_API_KEY=proj_fructosahel_key
-NEXT_PUBLIC_ANALYTICS_ENDPOINT=https://analytics-dashboard-phi-six.vercel.app/api
+NEXT_PUBLIC_CODENALYTICS_ENABLED=true
+NEXT_PUBLIC_CODENALYTICS_API_KEY=proj_fructosahel_key
+NEXT_PUBLIC_CODENALYTICS_ENDPOINT=https://analytics-dashboard-phi-six.vercel.app/api
 ```
 
 ---
@@ -140,9 +140,9 @@ All analytics configuration is done via environment variables:
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
-| `NEXT_PUBLIC_ANALYTICS_ENABLED` | Yes | `false` | Enable/disable analytics |
-| `NEXT_PUBLIC_ANALYTICS_API_KEY` | Yes | - | Project API key |
-| `NEXT_PUBLIC_ANALYTICS_ENDPOINT` | Yes | - | Analytics API endpoint |
+| `NEXT_PUBLIC_CODENALYTICS_ENABLED` | Yes | `false` | Enable/disable analytics |
+| `NEXT_PUBLIC_CODENALYTICS_API_KEY` | Yes | - | Project API key |
+| `NEXT_PUBLIC_CODENALYTICS_ENDPOINT` | Yes | - | Analytics API endpoint |
 
 ### Setup Instructions
 
@@ -153,9 +153,9 @@ cp .env.example .env.local
 
 2. Update the analytics variables if needed (defaults are already set):
 ```env
-NEXT_PUBLIC_ANALYTICS_ENABLED=true
-NEXT_PUBLIC_ANALYTICS_API_KEY=proj_fructosahel_key
-NEXT_PUBLIC_ANALYTICS_ENDPOINT=https://analytics-dashboard-phi-six.vercel.app/api
+NEXT_PUBLIC_CODENALYTICS_ENABLED=true
+NEXT_PUBLIC_CODENALYTICS_API_KEY=proj_fructosahel_key
+NEXT_PUBLIC_CODENALYTICS_ENDPOINT=https://analytics-dashboard-phi-six.vercel.app/api
 ```
 
 3. Restart the development server:

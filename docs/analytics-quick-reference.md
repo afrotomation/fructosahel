@@ -103,9 +103,9 @@ analytics.custom('event_name', {
 
 ## Environment Variables
 ```env
-NEXT_PUBLIC_ANALYTICS_ENABLED=true
-NEXT_PUBLIC_ANALYTICS_API_KEY=proj_fructosahel_key
-NEXT_PUBLIC_ANALYTICS_ENDPOINT=https://analytics-dashboard-phi-six.vercel.app/api
+NEXT_PUBLIC_CODENALYTICS_ENABLED=true
+NEXT_PUBLIC_CODENALYTICS_API_KEY=proj_fructosahel_key
+NEXT_PUBLIC_CODENALYTICS_ENDPOINT=https://analytics-dashboard-phi-six.vercel.app/api
 ```
 
 ## Debugging

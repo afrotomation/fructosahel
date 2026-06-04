@@ -58,9 +58,9 @@ ANTHROPIC_API_KEY=@anthropic_api_key
 #### Analytics Configuration
 
 ```bash
-NEXT_PUBLIC_ANALYTICS_ENABLED=true
-NEXT_PUBLIC_ANALYTICS_API_KEY=proj_fructosahel_key
-NEXT_PUBLIC_ANALYTICS_ENDPOINT=https://analytics-dashboard-phi-six.vercel.app/api
+NEXT_PUBLIC_CODENALYTICS_ENABLED=true
+NEXT_PUBLIC_CODENALYTICS_API_KEY=proj_fructosahel_key
+NEXT_PUBLIC_CODENALYTICS_ENDPOINT=https://analytics-dashboard-phi-six.vercel.app/api
 ```
 
 **Setup Instructions:**
@@ -273,9 +273,9 @@ Check your Sentry dashboard for the error.
    # Add environment variables
    vercel env add DATABASE_URL production
    vercel env add ANTHROPIC_API_KEY production
-   vercel env add NEXT_PUBLIC_ANALYTICS_ENABLED production
-   vercel env add NEXT_PUBLIC_ANALYTICS_API_KEY production
-   vercel env add NEXT_PUBLIC_ANALYTICS_ENDPOINT production
+   vercel env add NEXT_PUBLIC_CODENALYTICS_ENABLED production
+   vercel env add NEXT_PUBLIC_CODENALYTICS_API_KEY production
+   vercel env add NEXT_PUBLIC_CODENALYTICS_ENDPOINT production
    ```
 
 4. **Deploy to Production**
