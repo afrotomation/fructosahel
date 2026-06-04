@@ -5,10 +5,10 @@ import type {
 import { NextRequest, NextResponse } from "next/server";
 
 const ANALYTICS_ENDPOINT =
-  process.env.NEXT_PUBLIC_ANALYTICS_ENDPOINT ||
+  process.env.NEXT_PUBLIC_CODENALYTICS_ENDPOINT ||
   "https://codenalytics.vercel.app/api";
 const API_KEY =
-  process.env.NEXT_PUBLIC_ANALYTICS_API_KEY || "proj_fructosahel_key";
+  process.env.NEXT_PUBLIC_CODENALYTICS_API_KEY || "proj_fructosahel_key";
 
 interface AnalyticsRequestPayload {
   events?: EventData[];

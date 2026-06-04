@@ -16,9 +16,9 @@ RUN if [ -f bun.lock ]; then npm install -g bun@1.2.17 && bun install --frozen-l
 COPY . .
 
 ARG NEXT_PUBLIC_APP_URL
-ARG NEXT_PUBLIC_ANALYTICS_ENABLED
-ARG NEXT_PUBLIC_ANALYTICS_API_KEY
-ARG NEXT_PUBLIC_ANALYTICS_ENDPOINT
+ARG NEXT_PUBLIC_CODENALYTICS_ENABLED
+ARG NEXT_PUBLIC_CODENALYTICS_API_KEY
+ARG NEXT_PUBLIC_CODENALYTICS_ENDPOINT
 
 RUN if [ -f bun.lock ]; then bun run build; else npm run build; fi
 RUN mkdir -p /app/public

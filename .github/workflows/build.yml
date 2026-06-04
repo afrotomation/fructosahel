@@ -12,13 +12,13 @@
 #   # Edit the image name at the bottom to match the repo (fructosahel).
 #
 #   # Add these 7 GitHub Secrets under Settings → Secrets and variables → Actions:
-#   NEXT_PUBLIC_ANALYTICS_API_KEY
-#   NEXT_PUBLIC_ANALYTICS_ENDPOINT
+#   NEXT_PUBLIC_CODENALYTICS_API_KEY
+#   NEXT_PUBLIC_CODENALYTICS_ENDPOINT
 #   NEXT_PUBLIC_BETTER_AUTH_URL
 #   NEXT_PUBLIC_BETTER_STACK_SOURCE_TOKEN
 #   NEXT_PUBLIC_UMAMI_URL
 #   NEXT_PUBLIC_UMAMI_WEBSITE_ID
-#   # (NEXT_PUBLIC_ANALYTICS_ENABLED=true is hardcoded below)
+#   # (NEXT_PUBLIC_CODENALYTICS_ENABLED=true is hardcoded below)
 #
 #   # Or bulk-set from a .env file:
 #   gh secret set -f /tmp/REPO_NAME-build-args.env -R codenificient/REPO_NAME
@@ -79,9 +79,9 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
-            NEXT_PUBLIC_ANALYTICS_API_KEY=${{ secrets.NEXT_PUBLIC_ANALYTICS_API_KEY }}
-            NEXT_PUBLIC_ANALYTICS_ENDPOINT=${{ secrets.NEXT_PUBLIC_ANALYTICS_ENDPOINT }}
-            NEXT_PUBLIC_ANALYTICS_ENABLED=true
+            NEXT_PUBLIC_CODENALYTICS_API_KEY=${{ secrets.NEXT_PUBLIC_CODENALYTICS_API_KEY }}
+            NEXT_PUBLIC_CODENALYTICS_ENDPOINT=${{ secrets.NEXT_PUBLIC_CODENALYTICS_ENDPOINT }}
+            NEXT_PUBLIC_CODENALYTICS_ENABLED=true
             NEXT_PUBLIC_BETTER_AUTH_URL=${{ secrets.NEXT_PUBLIC_BETTER_AUTH_URL }}
             NEXT_PUBLIC_BETTER_STACK_SOURCE_TOKEN=${{ secrets.NEXT_PUBLIC_BETTER_STACK_SOURCE_TOKEN }}
             NEXT_PUBLIC_UMAMI_URL=${{ secrets.NEXT_PUBLIC_UMAMI_URL }}

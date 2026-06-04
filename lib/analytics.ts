@@ -22,9 +22,9 @@ class Analytics {
   constructor() {
     // Initialize configuration from environment variables
     this.config = {
-      endpoint: process.env.NEXT_PUBLIC_ANALYTICS_ENDPOINT || 'https://codenalytics.afrotomation.com/api',
-      apiKey: process.env.NEXT_PUBLIC_ANALYTICS_API_KEY!,
-      enabled: process.env.NEXT_PUBLIC_ANALYTICS_ENABLED !== "false",
+      endpoint: process.env.NEXT_PUBLIC_CODENALYTICS_ENDPOINT || 'https://codenalytics.afrotomation.com/api',
+      apiKey: process.env.NEXT_PUBLIC_CODENALYTICS_API_KEY!,
+      enabled: process.env.NEXT_PUBLIC_CODENALYTICS_ENABLED !== "false",
       debug: process.env.NODE_ENV === "development",
     };
 

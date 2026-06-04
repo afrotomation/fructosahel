@@ -15,9 +15,9 @@ The analytics system uses `@codenificient/analytics-sdk` to track user interacti
 The system is configured via environment variables in `.env.local`:
 
 ```env
-NEXT_PUBLIC_ANALYTICS_ENABLED=true
-NEXT_PUBLIC_ANALYTICS_API_KEY=proj_fructosahel_key
-NEXT_PUBLIC_ANALYTICS_ENDPOINT=https://analytics-dashboard-phi-six.vercel.app/api
+NEXT_PUBLIC_CODENALYTICS_ENABLED=true
+NEXT_PUBLIC_CODENALYTICS_API_KEY=proj_fructosahel_key
+NEXT_PUBLIC_CODENALYTICS_ENDPOINT=https://analytics-dashboard-phi-six.vercel.app/api
 ```
 
 ## Automatic Tracking
@@ -247,7 +247,7 @@ All supported event types are defined in `/types/analytics.ts`:
 
 ## Privacy & Performance
 
-- Analytics only runs when `NEXT_PUBLIC_ANALYTICS_ENABLED=true`
+- Analytics only runs when `NEXT_PUBLIC_CODENALYTICS_ENABLED=true`
 - All events include a session ID for grouping
 - User ID is optional and must be explicitly set
 - Events are sent via `keepalive` to work even during navigation
