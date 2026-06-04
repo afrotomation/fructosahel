@@ -1,3 +1,9 @@
+## [1.16.6](https://git.afrotomation.com/afrotomation/fructosahel/compare/v1.16.5...v1.16.6) (2026-06-04)
+
+### Performance Improvements
+
+* **docker:** cache install layer + add dockerignore ([9bc0d8f](https://git.afrotomation.com/afrotomation/fructosahel/commit/9bc0d8fb242ece7e130cb7d880e12a9786c9e734))
+
 ## [1.16.5](https://git.afrotomation.com/afrotomation/fructosahel/compare/v1.16.4...v1.16.5) (2026-05-18)
 
 ### Bug Fixes
