@@ -9,7 +9,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 # Install layer: invalidated only when lockfile changes
 COPY package.json ./
 COPY bun.lock* package-lock.json* ./
-RUN if [ -f bun.lock ]; then npm install -g bun@1.2.17 && bun install --frozen-lockfile; \
+RUN if [ -f bun.lock ]; then npm install -g bun@1.2.23 && bun install --frozen-lockfile; \
     elif [ -f package-lock.json ]; then npm ci; \
     else npm install; fi
 
@@ -32,7 +32,7 @@ ENV NODE_ENV=production \
 
 RUN apk add --no-cache libc6-compat openssl wget
 # bun is required by the ArgoCD PreSync migration Job to run scripts/migrate.ts
-RUN npm install -g bun@1.2.17
+RUN npm install -g bun@1.2.23
 RUN addgroup -g 1001 -S nodejs && adduser -u 1001 -S nextjs -G nodejs
 
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
