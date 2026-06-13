@@ -1,3 +1,7 @@
+---
+last_verified: 2026-06-13
+---
+
 # CLAUDE.md — FructoSahel
 
 ## What This Is
@@ -8,7 +12,7 @@ Farm management platform for the Sahel region of West Africa (Burkina Faso, Mali
 
 - **Framework**: Next.js 16 (App Router), React 19, TypeScript
 - **Database**: Neon PostgreSQL (serverless) + Drizzle ORM
-- **Auth**: Neon Auth (beta) — wrappers in `lib/auth/`
+- **Auth**: Better Auth (`better-auth` ^1.6.9) — client/server wrappers in `lib/auth/` <!-- corrected 2026-06-13 from: "Neon Auth (beta)" -->
 - **AI**: Anthropic Claude via `@anthropic-ai/sdk`
 - **Styling**: Tailwind CSS v4 + Radix UI (shadcn pattern)
 - **i18n**: next-intl with locale-based routing (`/en/`, `/fr/`)
@@ -41,7 +45,7 @@ components/
   charts/            # Recharts components
   forms/             # React Hook Form + Zod
 lib/
-  auth/              # Neon Auth client/server wrappers
+  auth/              # Better Auth client/server wrappers
   db/                # Drizzle schema, migrations, connection
   hooks/             # Custom React hooks
   ai-agents/         # Claude AI advisor config
@@ -63,8 +67,9 @@ messages/            # i18n translation files (en.json, fr.json)
 
 ## Auth Pattern
 
-- Client: `authClient.useSession()` from `lib/auth/client.ts`
-- Server: `neonAuth()` from `lib/auth/server.ts` returns `{ session, user }`
+- **Provider**: Better Auth — client-side via `better-auth/react`; server-side sessions are validated by proxying the request cookie to an upstream CodeniServer auth host (`NEXT_PUBLIC_AUTH_URL`, default `auth.afrotomation.com`, which runs Better Auth)
+- Client: `authClient.useSession()` from `lib/auth/client.ts` (`createAuthClient` from `better-auth/react`)
+- Server: `neonAuth()` from `lib/auth/server.ts` returns `{ session, user }` — a kept compat-shim name wrapping `getServerSession()`, **not** Neon Auth
 - Middleware: `middleware.ts` protects `/api/*` and `/dashboard/*` routes
 - API routes: Import `neonAuth` for server-side session checks
 
