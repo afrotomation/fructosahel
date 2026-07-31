@@ -2,6 +2,7 @@
 ARG NODE_VERSION=22-alpine
 
 FROM mirror.gcr.io/library/node:${NODE_VERSION} AS builder
+COPY --from=mirror.gcr.io/oven/bun:1.2.17-alpine /usr/local/bin/bun /usr/local/bin/bun
 RUN apk add --no-cache libc6-compat openssl
 WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
@@ -9,7 +10,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 # Install layer: invalidated only when lockfile changes
 COPY package.json ./
 COPY bun.lock* package-lock.json* ./
-RUN if [ -f bun.lock ]; then npm install -g bun@1.2.17 && bun install --frozen-lockfile; \
+RUN if [ -f bun.lock ]; then true && bun install --frozen-lockfile; \
     elif [ -f package-lock.json ]; then npm ci; \
     else npm install; fi
 
@@ -32,7 +33,7 @@ ENV NODE_ENV=production \
 
 RUN apk add --no-cache libc6-compat openssl wget
 # bun is required by the ArgoCD PreSync migration Job to run scripts/migrate.ts
-RUN npm install -g bun@1.2.17
+COPY --from=mirror.gcr.io/oven/bun:1.2.17-alpine /usr/local/bin/bun /usr/local/bin/bun
 RUN addgroup -g 1001 -S nodejs && adduser -u 1001 -S nextjs -G nodejs
 
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
